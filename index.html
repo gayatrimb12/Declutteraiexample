@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inside Declutter.AI — How Elena Kapoor (CEO, SkySync Technologies) Runs a Smarter Enterprise</title>
+<style>
+/* ====== GLOBAL RESET ====== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background:#faf9f7;
+  color:#2c2c2c;
+  line-height:1.6;
+  scroll-behavior:smooth;
+}
+header {
+  position:fixed; top:0; width:100%;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(10px);
+  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  z-index:1000;
+  padding:1rem 5%;
+}
+.header-content {
+  max-width:1400px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.logo { font-weight:700; font-size:1.5rem; color:#6b46c1; }
+nav { display:flex; gap:2rem; align-items:center; }
+nav a { text-decoration:none; color:#5a5a5a; font-weight:500; font-size:0.95rem; transition:.3s; }
+nav a:hover { color:#6b46c1; }
+.header-buttons { display:flex; gap:1rem; }
+.btn {
+  padding:0.7rem 1.6rem; border-radius:6px; border:none; cursor:pointer;
+  font-weight:600; transition:all .3s;
+}
+.btn-primary { background:#2c2c2c; color:#fff; }
+.btn-primary:hover { background:#1a1a1a; transform:translateY(-2px); }
+.btn-outline { background:transparent; border:2px solid #2c2c2c; color:#2c2c2c; }
+.btn-outline:hover { background:#2c2c2c; color:#fff; }
+
+.renewal-section {
+            background: #faf9f7;
+            padding: 5rem 5%;
+        }
+
+.renewal-list {
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+.renewal-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 2px solid #e0dcd5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+.activity-feed {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e0dcd5;
+        }
+        
+.activity-feed h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 700;
+        }
+.activity-section {
+            margin-top: 2rem;
+        }
+/* ====== HERO ====== */
+section { padding:5rem 5%; max-width:1400px; margin:0 auto; }
+.hero { margin-top:90px; background:#fff; padding:6rem 5%; text-align:center; border-radius:12px; }
+.hero h1 { font-size:2.8rem; font-weight:800; line-height:1.3; margin-bottom:1rem; }
+.hero p { color:#8f8b88; font-size:1.2rem; margin-bottom:2rem; max-width:800px; margin-inline:auto; }
+.hero-ctas { display:flex; justify-content:center; gap:1rem; }
+
+/* ====== METRICS ====== */
+.metrics-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
+.metric-card {
+  background:#fff; border:1px solid #e0dcd5; border-radius:8px; padding:1.5rem; text-align:center;
+}
+.metric-value { font-size:2rem; font-weight:800; }
+.metric-label { color:#aca8a3; margin-top:0.3rem; }
+
+/* ====== DASHBOARD ====== */
+.dashboard-container {
+  background:#fff; border:1px solid #e0dcd5; border-radius:12px; padding:2rem; margin-top:2rem;
+}
+.dashboard-header {
+  display:flex; justify-content:space-between; align-items:center;
+  border-bottom:2px solid #e0dcd5; padding-bottom:1rem; margin-bottom:1.5rem;
+}
+.agent-status { background:#6b46c1; color:#fff; border-radius:20px; padding:0.5rem 1rem; font-size:0.9rem; font-weight:700; }
+.insights-cards { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
+.insight-card {
+  background:#faf9f7; border:1px solid #e0dcd5; border-radius:8px; padding:1rem;
+}
+.insight-card h4 { font-size:0.85rem; text-transform:uppercase; color:#8f8b88; margin-bottom:0.4rem; }
+.insight-card .value { font-weight:800; font-size:1.3rem; }
+.progress {
+  width:100%; background:#f0ede8; border-radius:6px; overflow:hidden; height:8px; margin-top:0.4rem;
+}
+.progress span {
+  display:block; height:100%; background:#6b46c1; animation:grow 1.6s ease-in-out;
+}
+@keyframes grow { from{width:0;} to{width:var(--w);} }
+
+.dashboard-layout {
+  display:grid; grid-template-columns:260px 1fr 300px; gap:1rem; margin-top:1.5rem; align-items:start;
+}
+.panel { background:#fff; border:1px solid #e0dcd5; border-radius:8px; padding:1rem; }
+.tags-panel .tag-item {
+  display:flex; justify-content:space-between; padding:0.5rem 0; border-bottom:1px solid #f0ede8;
+}
+.file-row {
+  background:#faf9f7; border-radius:6px; padding:0.8rem; margin-bottom:0.6rem;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.file-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+.file-tag {
+  background:#6b46c1; color:#fff; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:10px; font-weight:700;
+}
+.file-tag.warning { background:#f59e0b; }
+.status-toggle {
+  display:flex; justify-content:space-between; background:#faf9f7; border-radius:6px;
+  padding:0.6rem; margin:0.8rem 0;
+}
+.status-badge { background:#10b981; color:#fff; padding:0.2rem 0.8rem; border-radius:12px; font-weight:700; }
+
+/* ====== TEAM TABLE ====== */
+.team-table { width:100%; border-collapse:collapse; }
+.team-table th, .team-table td {
+  text-align:left; padding:0.6rem; border-bottom:1px solid #f0ede8; color:#5a5a5a;
+}
+.team-name { font-weight:700; color:#2c2c2c; }
+
+/* ====== FEATURE GRID ====== */
+.features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem; }
+.feature-card {
+  background:#faf9f7; border:1px solid #e0dcd5; border-radius:8px; padding:1.2rem;
+}
+.feature-card h4 { color:#6b46c1; font-size:1rem; margin-bottom:0.4rem; }
+.feature-card p { color:#5a5a5a; font-size:0.9rem; margin-bottom:0.5rem; }
+.feature-stat {
+  background:#fff; border:1px solid #e0dcd5; display:inline-block; border-radius:14px;
+  padding:0.2rem 0.7rem; font-size:0.8rem; font-weight:700; color:#6b46c1;
+}
+
+/* ====== RESULTS ====== */
+.results-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1rem; }
+.result-card {
+  background:#fff; border:1px solid #e0dcd5; border-radius:8px; padding:1rem; text-align:center;
+}
+.result-card .val { font-weight:800; font-size:1.6rem; }
+.result-card .lab { color:#8f8b88; }
+
+/* ====== FOOTER ====== */
+footer { text-align:center; padding:2rem 5%; color:#aca8a3; font-size:0.9rem; margin-top:2rem; }
+
+@media(max-width:1100px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr);}
+  .insights-cards{grid-template-columns:repeat(2,1fr);}
+  .dashboard-layout{grid-template-columns:1fr;}
+  .features-grid{grid-template-columns:repeat(2,1fr);}
+  .results-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <div class="logo">Declutter.AI</div>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#team">Team</a>
+      <a href="#features">Features</a>
+      <a href="#results">Impact</a>
+    </nav>
+    <div class="header-buttons">
+      <button class="btn btn-primary">Try Free</button>
+      <button class="btn btn-outline">Request Demo</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Inside Declutter.AI — How Elena Pritchett (CEO, SkySync Technologies) Runs a Smarter Enterprise</h1>
+  <p>Declutter.AI empowers SkySync to automate cleanup, predict storage growth, and coordinate global data efficiency across teams.</p>
+  <div class="hero-ctas">
+    <button class="btn btn-primary">Start Trial</button>
+    <a href="#dashboard" class="btn btn-outline">See Dashboard</a>
+  </div>
+</section>
+
+<section>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="metric-value">10000</div><div class="metric-label">Files Scanned</div></div>
+    <div class="metric-card"><div class="metric-value">9.6 TB</div><div class="metric-label">Space Reclaimed</div></div>
+    <div class="metric-card"><div class="metric-value">96%</div><div class="metric-label">AI Confidence Index</div></div>
+    <div class="metric-card"><div class="metric-value">48</div><div class="metric-label">Hosts under Model Orion</div></div>
+  </div>
+</section>
+
+<section id="dashboard">
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <div>
+        <h2>Elena’s Executive Dashboard</h2>
+        <p style="color:#8f8b88;">Organization: SkySync Technologies • Employees: 230 • Global Data Hubs: 5</p>
+      </div>
+      <div class="agent-status">Model Orion v4.2 • Auto-Tag v3 • PredictClean Engine</div>
+    </div>
+
+    <div class="insights-cards">
+      <div class="insight-card"><h4>Total Files Scanned</h4><div class="value">10,000</div><div class="progress" style="--w:100%;"><span style="width:100%;"></span></div></div>
+      <div class="insight-card"><h4>Files Auto-Cleaned</h4><div class="value">2840</div><div class="progress" style="--w:80%;"><span style="width:80%;"></span></div></div>
+      <div class="insight-card"><h4>Predicted Growth (90d)</h4><div class="value">+4%</div><div class="progress" style="--w:40%;"><span style="width:40%;"></span></div></div>
+      <div class="insight-card"><h4>Confidence Index</h4><div class="value">96%</div><div class="progress" style="--w:96%;"><span style="width:96%;"></span></div></div>
+    </div>
+
+    <div class="dashboard-layout">
+      <aside class="panel tags-panel">
+        <h3>Smart Tags</h3>
+        <div class="tag-item"><span>Documents</span><span>50,000</span></div>
+        <div class="tag-item"><span>Media</span><span>10,000</span></div>
+        <div class="tag-item"><span>Archive</span><span>15,000</span></div>
+        <div class="tag-item"><span>Duplicate</span><span>5,000</span></div>
+        <div class="tag-item"><span>Expiring</span><span>6,005</span></div>
+        <div class="tag-item"><span>To Review</span><span>11,005</span></div>
+      </aside>
+
+      <main class="panel">
+        <h3>Recent File Highlights</h3>
+        <div class="file-row"><div><div class="file-name">R&D_ModelWeights_v5.h5</div><div class="file-tags"><span class="file-tag">Documents</span><span class="file-tag warning">Duplicate</span></div></div><button class="btn-outline">Preview</button></div>
+        <div class="file-row"><div><div class="file-name">Client_BetaReport_2024.pdf</div><div class="file-tags"><span class="file-tag">Documents</span><span class="file-tag">Expiring</span></div></div><button class="btn-outline">Renew</button></div>
+        <div class="file-row"><div><div class="file-name">DataArchive_Q2_2023.zip</div><div class="file-tags"><span class="file-tag">Archive</span></div></div><button class="btn-outline">Compress</button></div>
+      </main>
+
+      <aside class="panel">
+        <h3>AI Insights Console</h3>
+        <p><strong>Model:</strong> Orion 4.2</p>
+        <p><strong>Retrained:</strong> Oct 12, 2025</p>
+        <p><strong>Drift Alerts:</strong> 0 this week</p>
+        <p><strong>Prediction Confidence:</strong> 96%</p>
+        <p><strong>Storage Forecast:</strong> +4% next 90 days</p>
+        <div class="status-toggle"><span>Auto-Clean</span><span class="status-badge">ON</span></div>
+        <button class="btn btn-primary" style="width:100%;">Run Predictive Scan</button>
+      </aside>
+    </div>
+
+    <div id="team" style="margin-top:2rem;">
+      <h3>Team Pulse & Efficiency</h3>
+      <table class="team-table">
+        <thead><tr><th>Department</th><th>Files</th><th>UPI</th><th>AI Accepted</th><th>Rejected</th><th>Reclaimed</th></tr></thead>
+        <tbody>
+          <tr><td class="team-name">Engineering</td><td>3.0M</td><td>92</td><td>44k</td><td>2k</td><td>4.2 TB</td></tr>
+          <tr><td class="team-name">Finance</td><td>620k</td><td>88</td><td>6.1k</td><td>400</td><td>640 GB</td></tr>
+          <tr><td class="team-name">Marketing</td><td>1.1M</td><td>90</td><td>9.8k</td><td>600</td><td>1.1 TB</td></tr>
+          <tr><td class="team-name">R&D</td><td>2.5M</td><td>95</td><td>34k</td><td>1.1k</td><td>3.3 TB</td></tr>
+          <tr><td class="team-name">Operations</td><td>420k</td><td>87</td><td>3.6k</td><td>180</td><td>460 GB</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="activity-section">
+                <div class="activity-feed">
+                    <h4>Activity Feed</h4>
+                    <div class="activity-item">
+                        <span class="activity-date">Mar 10</span> — 1,200 media files compressed.
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-date">Mar 12</span> — 42 files flagged for renewal.
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-date">Mar 14</span> — 3 files recovered from Trash buffer.
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-date">Mar 16</span> — 450 duplicates deleted automatically.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="renewal-section">
+        <h2>Renewal Alerts</h2>
+        <div class="renewal-list">
+            <div class="renewal-item">
+                <div class="renewal-info">
+                    <div class="renewal-name">Training_License.key</div>
+                    <div class="renewal-details">Tags: Expiring • Archive | Renew by Apr 10, 2025</div>
+                </div>
+                <div class="renewal-actions">
+                    <button class="btn btn-secondary">Renew</button>
+                    <button class="btn btn-outline">Archive</button>
+                    <button class="btn" style="background: #f0ede8; color: #5a5a5a;">Dismiss</button>
+                </div>
+            </div>
+            
+            <div class="renewal-item">
+                <div class="renewal-info">
+                    <div class="renewal-name">Software_Subscription_2024.pdf</div>
+                    <div class="renewal-details">Tags: Documents • Expiring | Renew by Mar 28, 2025</div>
+                </div>
+                <div class="renewal-actions">
+                    <button class="btn btn-secondary">Renew</button>
+                    <button class="btn btn-outline">Archive</button>
+                    <button class="btn" style="background: #f0ede8; color: #5a5a5a;">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="features" style="margin-top:2rem;">
+      <h3>Feature Universe — Powered by Declutter.AI</h3>
+      <div class="features-grid">
+        <div class="feature-card"><h4>Auto-Tag v3</h4><p>AI-driven content labeling of 10.2M files for instant retrieval.</p><div class="feature-stat">100% Coverage</div></div>
+        <div class="feature-card"><h4>PredictClean Engine</h4><p>Forecasts redundant clusters and runs safe cleanup jobs.</p><div class="feature-stat">128k Actions/mo</div></div>
+        <div class="feature-card"><h4>SmartPolicy Engine</h4><p>Adapts cleanup rules per department from usage behavior.</p><div class="feature-stat">42 Depts Learned</div></div>
+        <div class="feature-card"><h4>DeepDuplicate Detection</h4><p>Detects near-identical media and merges them automatically.</p><div class="feature-stat">180k Duplicates</div></div>
+        <div class="feature-card"><h4>Contextual Compression</h4><p>Compresses large media intelligently with 0% quality loss.</p><div class="feature-stat">3.1 TB Saved</div></div>
+        <div class="feature-card"><h4>Role-based Approvals</h4><p>Cleanup tasks routed to the right managers automatically.</p><div class="feature-stat">2.3k Pending</div></div>
+        <div class="feature-card"><h4>Team Sync & Version Reconciliation</h4><p>Auto-aligns shared files to current versions across teams.</p><div class="feature-stat">8.4k Files Synced</div></div>
+        <div class="feature-card"><h4>Forecast Assistant</h4><p>Predicts data growth and upcoming resource needs.</p><div class="feature-stat">+4% 90-day Forecast</div></div>
+        <div class="feature-card"><h4>Green Compute Tracker</h4><p>Monitors energy savings via reduced redundant workloads.</p><div class="feature-stat">2,340 kWh Saved</div></div>
+      </div>
+    </div>
+
+    <div id="results" style="margin-top:2rem;">
+      <h3>Results & Impact</h3>
+      <div class="results-grid">
+        <div class="result-card"><div class="val">38%</div><div class="lab">Storage Cost Reduction</div></div>
+        <div class="result-card"><div class="val">9.6 TB</div><div class="lab">Space Reclaimed</div></div>
+        <div class="result-card"><div class="val">420 hrs/mo</div><div class="lab">Manual Hours Saved</div></div>
+        <div class="result-card"><div class="val">128k</div><div class="lab">Files Auto-Cleaned</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Declutter.AI • Powered by Model Orion v4.2
+</footer>
+</body>
+</html>
